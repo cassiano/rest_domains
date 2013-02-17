@@ -1,0 +1,9 @@
+%h1 Detalhes da notícia
+
+%h2= @article.title
+%h3= @article.subtitle
+%h4= @article.body
+
+%h2 Comentários
+
+= render_comments @article.id, show_form: true

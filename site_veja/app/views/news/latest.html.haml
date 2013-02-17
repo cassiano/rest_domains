@@ -1,0 +1,7 @@
+%h1 Últimas notícias da Veja
+
+%ul
+  - @articles.each do |article|
+    %li
+      %h3= link_to article.title, news_detail_path(article.slug)
+      %h4= article.subtitle

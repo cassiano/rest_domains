@@ -1,0 +1,14 @@
+- if (comments = AnotacoesEngine::Comment.search(resource_uri)).any?
+	%ul
+		- comments.each do |comment|
+			%li
+				= comment.body
+				(#{comment.created_at})
+- else
+	Nenhum comentário (seja o primeiro a comentar)
+
+- if show_form
+	= form_tag anotacoes_engine.create_comment_path, method: :post, remote: true do
+		= hidden_field_tag 'comment[resource_uri]', resource_uri
+		= text_field_tag 'comment[body]'
+		= submit_tag 'Enviar comentário'
