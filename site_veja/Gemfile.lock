@@ -1,11 +1,11 @@
 PATH
-  remote: /Users/cassiano/projects/rails/rest_http_demos/anotacoes_engine
+  remote: vendor/engines/anotacoes_engine
   specs:
     anotacoes_engine (0.0.1)
       rails (~> 3.2.12)
 
 PATH
-  remote: /Users/cassiano/projects/rails/rest_http_demos/editorial_engine
+  remote: vendor/engines/editorial_engine
   specs:
     editorial_engine (0.0.1)
       rails (~> 3.2.12)
