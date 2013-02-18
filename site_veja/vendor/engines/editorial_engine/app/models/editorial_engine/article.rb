@@ -17,9 +17,9 @@ module EditorialEngine
       "#{DOMAIN_URL}/articles/#{slug}"
     end
   
-    def comments
-      @comments ||= AnotacoesEngine::Comment.search(id, self)
-    end
+    # def comments
+    #   @comments ||= AnotacoesEngine::Comment.search(id, self)
+    # end
   
     def self.latest(limit = 3)
       response = HTTParty.get("#{DOMAIN_URL}/articles/latest.json", basic_auth: CREDENTIALS, query: { limit: limit }) rescue nil
