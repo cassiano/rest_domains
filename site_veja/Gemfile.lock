@@ -2,12 +2,14 @@ PATH
   remote: vendor/engines/anotacoes_engine
   specs:
     anotacoes_engine (0.0.1)
+      httparty
       rails (~> 3.2.12)
 
 PATH
   remote: vendor/engines/editorial_engine
   specs:
     editorial_engine (0.0.1)
+      httparty
       rails (~> 3.2.12)
 
 GEM
@@ -125,7 +127,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   editorial_engine!
   haml
-  httparty
   jquery-rails
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)

@@ -36,7 +36,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'httparty'
 gem 'haml'
 gem 'editorial_engine', :path => "vendor/engines/editorial_engine"
 gem 'anotacoes_engine', :path => "vendor/engines/anotacoes_engine"

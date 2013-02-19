@@ -4,6 +4,7 @@
 %h3= @article.subtitle
 %h4= @article.body
 
-%h2 Comentários
+- if anotacoes_domain_alive?
+  %h2 Comentários
 
-= render_comments @article.id, show_form: true
+  = render_comments @article.id, show_form: true

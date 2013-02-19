@@ -1,5 +1,5 @@
 SiteVeja::Application.routes.draw do
-  mount AnotacoesEngine::Engine, :at => "anotacoes_engine"
+  mount AnotacoesEngine::Engine => "/anotacoes_engine", as: 'anotacoes_engine'
   
   get "news/latest"
   get "news/detail/:article_id" => 'news#detail', as: :news_detail

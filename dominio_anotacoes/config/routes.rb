@@ -4,6 +4,8 @@ DominioAnotacoes::Application.routes.draw do
       get :search
     end
   end
+  
+  get 'alive' => 'health_check#alive'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

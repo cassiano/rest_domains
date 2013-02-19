@@ -1,4 +1,4 @@
-- if (comments = AnotacoesEngine::Comment.search(resource_uri)).any?
+- if comments.any?
 	%ul
 		- comments.each do |comment|
 			%li
