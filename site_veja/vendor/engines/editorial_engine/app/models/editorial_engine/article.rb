@@ -4,13 +4,15 @@ module EditorialEngine
     CREDENTIALS = { username: 'veja', password: 'pwd' }
   
     def self.find(slug)
-        begin
-          response = HTTParty.get(id = uri_from_slug(slug), basic_auth: CREDENTIALS, query: { format: :json })
-        rescue Errno::ECONNREFUSED
-        end
+      begin
+        # response = HTTParty.get(id = uri_from_slug(slug), basic_auth: CREDENTIALS, query: { format: :json })
+        response = HTTParty.get(id = uri_from_slug(slug), basic_auth: CREDENTIALS, query: { format: :xml })
+      rescue Errno::ECONNREFUSED
+      end
     
       if response && response.code == 200 
-        new JSON.parse(response.body).merge(id: id)
+        # new JSON.parse(response.body).merge(id: id)
+        new Hash.from_xml(response.body)['article'].merge(id: id)
       else
         nil
       end
@@ -20,15 +22,11 @@ module EditorialEngine
       "#{DOMAIN_URL}/articles/#{slug}"
     end
   
-    # def comments
-    #   @comments ||= AnotacoesEngine::Comment.search(id, self)
-    # end
-  
     def self.latest(limit = 3)
-        begin
-          response = HTTParty.get("#{DOMAIN_URL}/articles/latest.json", basic_auth: CREDENTIALS, query: { limit: limit })
-        rescue Errno::ECONNREFUSED
-        end
+      begin
+        response = HTTParty.get("#{DOMAIN_URL}/articles/latest.json", basic_auth: CREDENTIALS, query: { limit: limit })
+      rescue Errno::ECONNREFUSED
+      end
     
       if response && response.code == 200 
         JSON.parse(response.body).map { |attr| new attr }
